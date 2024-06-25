@@ -44,3 +44,8 @@ def cart_view(request):
 
 def login_view(request):
     return render(request, 'registration/login.html')
+
+def tienda(request, pk):
+    tienda = Post.objects.get(id=pk)
+    context ={'tienda': tienda }
+    return render(request, 'Posts/tienda.html')

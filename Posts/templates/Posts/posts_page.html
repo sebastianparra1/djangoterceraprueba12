@@ -38,7 +38,7 @@
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">{{ post.subtitulo }}</p>
                     <a href="{% url 'post' post.id %}" class="btn btn-primary">Leer Más</a>
-                    <a href="#" class="btn btn-primary">Comprar</a>
+                    <a href="{% url 'tienda' post.id %}" class="btn btn-primary">Comprar</a>
                 </div>
             </div>
         </div>

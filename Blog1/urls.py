@@ -22,14 +22,16 @@ from django.views.generic import TemplateView
 
 from django.conf import settings
 from django.conf.urls.static import static
+from Posts.views import tienda 
+from Posts import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Posts.urls')),
     path("accounts/", include("django.contrib.auth.urls")), #new
     path('iniciarsesion.html', TemplateView.as_view(template_name='iniciarsesion.html'), name='iniciar_sesion'),
-    path('accounts/', include('django.contrib.auth.urls')) #new
-    
+    path('accounts/', include('django.contrib.auth.urls')), #new
+    path('tienda/', views.tienda, name='Tienda'),
 
 ]
 
