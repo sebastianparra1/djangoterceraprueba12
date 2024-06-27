@@ -1,84 +1,227 @@
-{% extends 'main.html' %}
-
-{% block content %}
-<div class="container">
-    <h1>Carrito de Compras</h1>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="https://cdn0.bodas.net/article/2248/3_2/960/jpg/98422-portada.jpeg" class="card-img-top" alt="El Principito">
-                <div class="card-body">
-                    <h5 class="card-title">El Principito</h5>
-                    <p class="card-text">Antoine de Saint-Exupéry.</p>
-                    <p class="card-text">$9000</p>
-                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .sticky-total {
+            position: -webkit-sticky; /* Para Safari */
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'main.html' %}
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Carrito de Compras</h1>
+                <div class="row">
+                    <!-- Book 1 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="https://cdn0.bodas.net/article/2248/3_2/960/jpg/98422-portada.jpeg" class="card-img-top" alt="El Principito">
+                            <div class="card-body">
+                                <h5 class="card-title">El Principito</h5>
+                                <p class="card-text">Antoine de Saint-Exupéry</p>
+                                <p class="card-text">$9000</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 2 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/libro_1984.jpg" class="card-img-top" alt="1984">
+                            <div class="card-body">
+                                <h5 class="card-title">1984</h5>
+                                <p class="card-text">George Orwell</p>
+                                <p class="card-text">$8000</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 3 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/LFBIU2UBMFHETIFHUCXUNQBXVQ.jpg" class="card-img-top" alt="La casa de los espíritus">
+                            <div class="card-body">
+                                <h5 class="card-title">La casa de los espíritus</h5>
+                                <p class="card-text">Isabel Allende</p>
+                                <p class="card-text">$7000</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 4 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/elguardianentreelcenteno-840x473.jpg" class="card-img-top" alt="Cien años de soledad">
+                            <div class="card-body">
+                                <h5 class="card-title">El guardián entre el centeno</h5>
+                                <p class="card-text">J.D. Salinger</p>
+                                <p class="card-text">$8500</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 5 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/Naranja-36.jpg" class="card-img-top" alt="Don Quijote de la Mancha">
+                            <div class="card-body">
+                                <h5 class="card-title">La naranja mecánica</h5>
+                                <p class="card-text">Anthony Burgess</p>
+                                <p class="card-text">$9500</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 6 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/Gatsby-slide-780x470.jpg" class="card-img-top" alt="La sombra del viento">
+                            <div class="card-body">
+                                <h5 class="card-title">The Great Gatsby</h5>
+                                <p class="card-text">F. Scott Fitzgerald</p>
+                                <p class="card-text">$7500</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 7 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/maxresdefault_1.jpg" class="card-img-top" alt="Matar a un ruiseñor">
+                            <div class="card-body">
+                                <h5 class="card-title">La campana de cristal</h5>
+                                <p class="card-text">Sylvia Plath</p>
+                                <p class="card-text">$7800</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 8 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/NQSME62WJNC6BMIO7BAZJHANFA.png" class="card-img-top" alt="Orgullo y prejuicio">
+                            <div class="card-body">
+                                <h5 class="card-title">A sangre fría</h5>
+                                <p class="card-text">Truman Capote</p>
+                                <p class="card-text">$7200</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 9 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/81579d812f4d4fb289a5e744d584710c_620x350.png" class="card-img-top" alt="El amor en los tiempos del cólera">
+                            <div class="card-body">
+                                <h5 class="card-title">Fahrenheit 451</h5>
+                                <p class="card-text">Ray Bradbury</p>
+                                <p class="card-text">$8400</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 10 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/Ayn-Rand-La-rebeli%C3%B3n-de-Atlas-nueva-traducci%C3%B3n-1.png" class="card-img-top" alt="La ciudad y los perros">
+                            <div class="card-body">
+                                <h5 class="card-title">La rebelión de Atlas</h5>
+                                <p class="card-text">Ayn Rand</p>
+                                <p class="card-text">$8200</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 11 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/livro-duna-destaque.jpg" class="card-img-top" alt="Crimen y castigo">
+                            <div class="card-body">
+                                <h5 class="card-title">Duna</h5>
+                                <p class="card-text">Frank Herbert</p>
+                                <p class="card-text">$8900</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Book 12 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="http://127.0.0.1:8000/images/COLLAGE3.jpg" class="card-img-top" alt="Madame Bovary">
+                            <div class="card-body">
+                                <h5 class="card-title">La insoportable levedad del ser</h5>
+                                <p class="card-text">Milan Kundera</p>
+                                <p class="card-text">$8600</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="http://127.0.0.1:8000/images/libro_1984.jpg" class="card-img-top" alt="Libro 2">
-                <div class="card-body">
-                    <h5 class="card-title">1984</h5>
-                    <p class="card-text">George Orwell</p>
-                    <p class="card-text">$9000</p>
-                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <img src="http://127.0.0.1:8000/images/LFBIU2UBMFHETIFHUCXUNQBXVQ.jpg" class="card-img-top" alt="Libro 3">
-                <div class="card-body">
-                    <h5 class="card-title">La casa de los espíritus</h5>
-                    <p class="card-text">Isabel Allende</p>
-                    <p class="card-text">$9000</p>
-                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+            <div class="col-md-4">
+                <div class="card sticky-total">
+                    <div class="card-body">
+                        <h5 class="card-title">Total</h5>
+                        <p class="card-text" id="total">$0.00</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <hr>
-    <div class="row">
-        <div class="col-md-4 offset-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Total</h5>
-                    <p class="card-text" id="total">$0.00</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <!-- Bootstrap y JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalElement = document.getElementById('total');
+            const agregarBtns = document.querySelectorAll('.agregar-btn');
 
-<!-- Bootstrap y JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script>
-    const totalElement = document.getElementById('total');
-    const agregarBtns = document.querySelectorAll('.agregar-btn');
+            let total = 0;
+            let itemsEnCarrito = 0;
 
-    let total = 0;
+            agregarBtns.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();  // Prevenir el comportamiento por defecto del botón
 
-    agregarBtns.forEach(button => {
-        button.addEventListener('click', function() {
-            let priceText = button.parentElement.querySelector('.card-text:nth-last-child(2)').textContent.trim();
-            let price = parseFloat(priceText.replace('$', ''));
-            if (button.textContent.trim() === 'Agregar al carrito') {
-                total += price;
-                button.textContent = 'Quitar del carrito';
-                button.classList.remove('btn-outline-secondary');
-                button.classList.add('btn-outline-danger');
-            } else {
-                total -= price;
-                button.textContent = 'Agregar al carrito';
-                button.classList.remove('btn-outline-danger');
-                button.classList.add('btn-outline-secondary');
-            }
-            totalElement.textContent = `$${total.toFixed(2)}`;
+                    let priceText = button.parentElement.querySelector('.card-text:nth-child(3)').textContent.trim();
+                    let price = parseFloat(priceText.replace('$', ''));
+                    
+                    if (button.textContent.trim() === 'Agregar al carrito') {
+                        total += price;
+                        itemsEnCarrito++;
+                        button.textContent = 'Quitar del carrito';
+                        button.classList.remove('btn-outline-secondary');
+                        button.classList.add('btn-outline-danger');
+                    } else {
+                        total -= price;
+                        itemsEnCarrito--;
+                        button.textContent = 'Agregar al carrito';
+                        button.classList.remove('btn-outline-danger');
+                        button.classList.add('btn-outline-secondary');
+                    }
+
+                    totalElement.textContent = `$${total.toFixed(2)}`;
+                });
+            });
+
+            window.addEventListener('beforeunload', function (e) {
+                if (itemsEnCarrito === 0) {
+                    e.preventDefault();
+                    e.returnValue = '¿Estás seguro que no quieres comprar?';
+                }
+            });
         });
-    });
-</script>
-{% endblock %}
+    </script>
+    {% endblock %}
+</body>
+</html>

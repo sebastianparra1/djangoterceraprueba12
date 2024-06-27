@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Post, Cart
+from .models import Post, Cart, Productosssss
 
 @login_required
 def home(request):
@@ -49,3 +49,15 @@ def tienda(request, pk):
     tienda = Post.objects.get(id=pk)
     context ={'tienda': tienda }
     return render(request, 'Posts/tienda.html')
+
+def tienda_view(request):
+    productos =  Productosssss.objects.all()
+    print(productos) #borra si no sirve
+    return render(request, 'tienda.html', {'productos': productos})
+
+
+
+
+
+
+

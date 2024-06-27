@@ -33,4 +33,13 @@ class Producto(models.Model):
     def __str__(self):
         return f'{self.nombre} -> {self.precio}'
     
+class Productosssss(models.Model):
+    nombre = models.CharField(max_length=64)
+    categoria = models.CharField(max_length=32)
+    precio = models.IntegerField()
+    imagen_portada = models.ImageField(null=True, blank=True, default="", upload_to='images/')
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+
+    def __str__(self):
+        return f'{self.nombre} -> ${self.precio}'
     

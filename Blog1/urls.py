@@ -31,8 +31,10 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")), #new
     path('iniciarsesion.html', TemplateView.as_view(template_name='iniciarsesion.html'), name='iniciar_sesion'),
     path('accounts/', include('django.contrib.auth.urls')), #new
+    path ('tienda/<str:pk>', views.tienda, name= "tienda"),
     path('tienda/', views.tienda, name='Tienda'),
-
+    path('tienda/', views.tienda_view, name='tienda'),  #si no funciona eliminalooooooo
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

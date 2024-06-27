@@ -27,8 +27,16 @@
             <span class="visually-hidden">Siguiente</span>
         </button>
     </div>
-
+    <br>
+    <br>
     <!-- Lista de posts -->
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <h1>¿QUIERES LEER ALGO NUEVO?</h1>
+    <br>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for post in posts %}
         <div class="col">
@@ -45,4 +53,17 @@
         {% endfor %}
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Dirección: Frente al Metro Bellas Artes, Santiago Chile</p>
+        <p class="text-muted">+52 55 1234 5678</p>
+        <p class="text-muted"> info@tu-libreria.com</p>
+        <p class="text-muted">© 2024 Biblioteca del Saber. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
 {% endblock content %}
