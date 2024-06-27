@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Carrito de Compras</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="https://cdn0.bodas.net/article/2248/3_2/960/jpg/98422-portada.jpeg" class="card-img-top" alt="El Principito">
+                <div class="card-body">
+                    <h5 class="card-title">El Principito</h5>
+                    <p class="card-text">Antoine de Saint-Exupéry.</p>
+                    <p class="card-text">$9000</p>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="http://127.0.0.1:8000/images/libro_1984.jpg" class="card-img-top" alt="Libro 2">
+                <div class="card-body">
+                    <h5 class="card-title">1984</h5>
+                    <p class="card-text">George Orwell</p>
+                    <p class="card-text">$9000</p>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="http://127.0.0.1:8000/images/LFBIU2UBMFHETIFHUCXUNQBXVQ.jpg" class="card-img-top" alt="Libro 3">
+                <div class="card-body">
+                    <h5 class="card-title">La casa de los espíritus</h5>
+                    <p class="card-text">Isabel Allende</p>
+                    <p class="card-text">$9000</p>
+                    <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-4 offset-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total</h5>
+                    <p class="card-text" id="total">$0.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap y JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    const totalElement = document.getElementById('total');
+    const agregarBtns = document.querySelectorAll('.agregar-btn');
+
+    let total = 0;
+
+    agregarBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            let priceText = button.parentElement.querySelector('.card-text:nth-last-child(2)').textContent.trim();
+            let price = parseFloat(priceText.replace('$', ''));
+            if (button.textContent.trim() === 'Agregar al carrito') {
+                total += price;
+                button.textContent = 'Quitar del carrito';
+                button.classList.remove('btn-outline-secondary');
+                button.classList.add('btn-outline-danger');
+            } else {
+                total -= price;
+                button.textContent = 'Agregar al carrito';
+                button.classList.remove('btn-outline-danger');
+                button.classList.add('btn-outline-secondary');
+            }
+            totalElement.textContent = `$${total.toFixed(2)}`;
+        });
+    });
+</script>
+{% endblock %}
