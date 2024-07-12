@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@1hkzn%4mbrr(_i())*#e7ualvlkqzybn(s%!rqv@r08j5q9ab'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -52,14 +52,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Blog1.urls'
+ROOT_URLCONF = 'Posts.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
            
-            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'Posts/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -74,7 +74,7 @@ TEMPLATES = [
 ]
 LOGIN_REDIRECT_URL = "main"
 WSGI_APPLICATION = 'Posts.wsgi.application'
-
+DEBUG = True 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -138,3 +138,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ 

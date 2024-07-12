@@ -26,9 +26,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Posts.urls')),
-    path("accounts/", include("django.contrib.auth.urls")), #new
     path('iniciarsesion.html', TemplateView.as_view(template_name='iniciarsesion.html'), name='iniciar_sesion'),
-    path('accounts/', include('django.contrib.auth.urls')) #new
+    path('accounts2/', include('django.contrib.auth.urls')) #new
     
 
 ]
