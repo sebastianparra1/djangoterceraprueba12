@@ -11,7 +11,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     subtitulo = models.CharField(max_length=200, null=True, blank= True)
     description = models.TextField(null=True, blank= True)
-    imagen_portada = models.ImageField(null=True, blank= True, default = "")
+    imagen_portada = models.ImageField(upload_to='images/') 
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self): 

@@ -57,3 +57,6 @@ def tienda_view(request):
     productos =  Productosssss.objects.all()
     print(productos) #borra si no sirve
     return render(request, 'tienda.html', {'productos': productos})
+
+def iniciarsesion(request):
+    return render(request, 'iniciarsesion.html')
