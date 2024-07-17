@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .sticky-total {
+            position: -webkit-sticky; /* Para Safari */
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'main.html' %}
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Carrito de Compras</h1>
+                <div class="row">
+                    <!-- Book 1 -->
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="{{post.imagen_portada.url}}" class="card-img-top" alt="El Principito">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title}}</h5>
+                                <p class="card-text">{{post.subtitulo}}</p>
+                                <p class="card-text">$9000</p>
+                                <button type="button" class="btn btn-sm btn-outline-secondary agregar-btn">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="col-md-4">
+                <div class="card sticky-total">
+                    <div class="card-body">
+                        <h5 class="card-title">Total</h5>
+                        <p class="card-text" id="total">$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap y JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalElement = document.getElementById('total');
+            const agregarBtns = document.querySelectorAll('.agregar-btn');
+
+            let total = 0;
+            let itemsEnCarrito = 0;
+
+            agregarBtns.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();  // Prevenir el comportamiento por defecto del botón
+
+                    let priceText = button.parentElement.querySelector('.card-text:nth-child(3)').textContent.trim();
+                    let price = parseFloat(priceText.replace('$', ''));
+                    
+                    if (button.textContent.trim() === 'Agregar al carrito') {
+                        total += price;
+                        itemsEnCarrito++;
+                        button.textContent = 'Quitar del carrito';
+                        button.classList.remove('btn-outline-secondary');
+                        button.classList.add('btn-outline-danger');
+                    } else {
+                        total -= price;
+                        itemsEnCarrito--;
+                        button.textContent = 'Agregar al carrito';
+                        button.classList.remove('btn-outline-danger');
+                        button.classList.add('btn-outline-secondary');
+                    }
+
+                    totalElement.textContent = `$${total.toFixed(2)}`;
+                });
+            });
+
+            window.addEventListener('beforeunload', function (e) {
+                if (itemsEnCarrito === 0) {
+                    e.preventDefault();
+                    e.returnValue = '¿Estás seguro que no quieres comprar?';
+                }
+            });
+        });
+    </script>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Dirección: Frente al Metro Bellas Artes, Santiago Chile</p>
+            <p class="text-muted">+52 55 1234 5678</p>
+            <p class="text-muted">info@tu-libreria.com</p>
+            <p class="text-muted">© 2024 Biblioteca del Saber. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+</html>

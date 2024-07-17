@@ -2,8 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="https://cdn-icons-png.flaticon.com/128/3532/3532127.png" alt="Bootstrap" width="30" height="24">
-            Biblioteca del Saber 
-            <p>fecha y hora: {{fecha_hora}}</p>
+            Biblioteca del Saber
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -14,7 +13,7 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Categoria</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar Sesión</a>
+                    <a class="nav-link" href="{% url 'iniciarsesion' post.id %}">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>
